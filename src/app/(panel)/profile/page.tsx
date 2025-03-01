@@ -4,7 +4,7 @@ import { supabase } from '~/src/lib/supabase/supabase';
 import { useAuth } from '~/src/contexts/AuthContext';
 
 export default function Profile() {
-  const { setAuth } = useAuth();
+  const { setAuth, user } = useAuth();
 
   const handleSignOut = async () => {
     const { error } = await supabase.auth.signOut();
@@ -19,6 +19,7 @@ export default function Profile() {
   return (
     <View style={styles.container}>
       <Text>Profile Page</Text>
+      <Text>{user?.email}</Text>
       <Button title="Deslogar" onPress={handleSignOut} />
     </View>
   );
