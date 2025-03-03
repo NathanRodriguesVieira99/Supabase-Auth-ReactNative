@@ -14,6 +14,7 @@ export default function RootLayout() {
 function MainLayout() {
   const { setAuth } = useAuth();
 
+  // usa o contexto ao renderizar para verificar se estiver logado mantém na pagina, se não redireciona para SignIn 
   useEffect(() => {
     supabase.auth.onAuthStateChange((_event, session) => {
       if (session) {
