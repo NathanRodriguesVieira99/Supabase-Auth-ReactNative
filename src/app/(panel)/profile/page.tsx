@@ -6,6 +6,7 @@ import { useAuth } from '~/src/contexts/AuthContext';
 export default function Profile() {
   const { setAuth, user } = useAuth();
 
+// função de SignOut com supabase usando o context Auth
   const handleSignOut = async () => {
     const { error } = await supabase.auth.signOut();
     setAuth(null);
