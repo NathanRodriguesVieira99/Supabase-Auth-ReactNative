@@ -14,6 +14,7 @@ export default function SignUp() {
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
+  // função de signUp com supabase
   const handleSignUp = async () => {
     setLoading(true);
     const { data, error } = await supabase.auth.signUp({
